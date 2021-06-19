@@ -38,6 +38,7 @@
       "nodemon": "^1.18.9",
       "webpack": "^4.29.3",
       "webpack-cli": "^3.2.3"
-    }
+    },
+    "postinstall": "./node_modules/.bin/webpack"
   }
   
