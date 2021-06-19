@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('adminodelour', 'root', '12345', {
-  host: '127.0.0.1',
+const db = new Sequelize('freedbtech_nodeadminlourir', 'freedbtech_lourir', '12345', {
+  host: 'freedb.tech',
   dialect: 'mysql',
   port: '3306',
   operatorsAliases: false,
