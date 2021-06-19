@@ -1,0 +1,17 @@
+extends layout
+
+block contenido
+    .contenido-principal
+        h1 Tablero general 
+       
+        .row.tablero-row
+            .col.tablero-col
+                h4 Proyectos
+                p Proyectos creados:
+                    proyectos.length
+            .col.tablero-col
+                h4 Tareas 
+                p Tareas Sin concluir: 
+                    p#tareaIni 0
+                p Tareas concluidas:
+                    p#tareaFin 0

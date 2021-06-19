@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include partials/header
+    body.login
+        .contenedor-formulario
+
+            h1= nombrePagina
+
+            if locals.mensajes
+                .alertas
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria]
+                            .alerta(class=`${categoria}`)
+                                p= error
+            
+            form.caja-login(method="POST" action="/reestablecer")
+                p.pblue Ingresa tu e-mail para reestablecer la contraseña
+                .campo
+                    label(for="email") E-mail:
+                    input(type="text" name="email" placeholder="lourdes@mail.com" )
+                .campo.enviar
+                    input.boton(type="submit" value="Recuperar Contraseña")
+                .campo.acciones
+                    a(href="/iniciar-sesion") volver a Início de Sesion
