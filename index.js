@@ -50,10 +50,10 @@ app.set('views', path.join(__dirname, './views'));
 app.use(cookieParser());
 
 // sesiones para navegar entre distintas paginas sin volvernos a autenticar
-app.use(session({ 
-    secret: "keyboard cat", 
-    resave: false, 
-    saveUninitialized: false 
+app.use(session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false
 }));
 
 
@@ -69,11 +69,17 @@ app.use((req, res, next) => {
     // res.locals.stringObject = helpers.stringObject;
     res.locals.vardump = helpers.vardump;
     res.locals.mensajes = req.flash();
-    res.locals.usuario = {...req.user} || null;
+    res.locals.usuario = { ...req.user } || null;
     next();
 });
 
+app.use('/', routes());
 
-app.use('/', routes() );
+const host = process.env.host || '0.0.0.0'; //Servidor
 
-app.listen(3000);
+const PORT = process.env.PORT || 3306;//Puerto
+
+
+app.listen(PORT, () => {
+    console.log(`El servidor esta funcionando en el puerto ${PORT}`)
+});
